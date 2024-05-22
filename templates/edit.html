@@ -1,0 +1,70 @@
+        {% extends "layout.html" %}
+        {% block body %}
+        <style>
+            .form-floating{
+                line-height: 10px !important;
+                margin-top: 18px !important;
+            }
+        </style>
+                <!-- Page Header-->
+                <header class="masthead" style="background-image: url('static/assets/img/HOME_BGI.jpg')">
+                    <div class="container position-relative px-4 px-lg-5">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-md-10 col-lg-8 col-xl-7">
+                                <div class="site-heading">
+                                    <h3>Add/Edit Story ...</h3>
+                                    <span class="subheading"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- Main Content-->
+                <main class="mb-4">
+                    <div class="container px-4 px-lg-5">
+                        <div class="row gx-4 gx-lg-5 justify-content-center">
+                            <div class="col-md-10 col-lg-8 col-xl-7">
+                                <p>Want to get in touch? Fill out the form below to edit your story and It  will update back to you as soon as possible!</p>
+                                <div class="my-5">
+                                    <!-- * * * * * * * * * * * * * * *-->
+                                    <!-- * * SB Forms Contact Form * *-->
+                                    <!-- * * * * * * * * * * * * * * *-->
+                                    <!-- This form is pre-integrated with SB Forms.-->
+                                    <!-- To make this form functional, sign up at-->
+                                    <!-- https://startbootstrap.com/solution/contact-forms-->
+                                    <!-- to get an API token!-->
+ <div class="container px-4 px-lg-5">
+            <form id="contactForm" action="/edit/{{sno}}" method="POST">
+                <div class="form-floating" >
+                    <label for="title">Title</label>
+                    <input class="form-control" name="title" id="title" type="text" value="{{post.title}}" placeholder="Enter your Title..." required />
+                </div>
+                <div class="form-floating">
+                    <label for="subheading">Subheading</label>
+                    <input class="form-control" name="subheading" id="subheading" type="text" value="{{post.subheading}}" placeholder="Subheading here..." required />
+                </div>
+                <div class="form-floating">
+                    <label for="slug">Slug</label>
+                    <input class="form-control" name="slug" id="slug" type="text" value="{{post.slog}}" placeholder="Enter your slug..." required />
+                </div>
+                <div class="form-floating">
+                    <label for="img_file">Image URL</label>
+                    <input class="form-control" name="img_url" id="img_file" value="{{post.img_url}}" type="text" placeholder="Enter your file name..." required />
+                </div>
+                <div class="form-floating">
+                    <label for="content">Content</label>
+                    <input type="text" class="form-control" name="content" id="content" value="{{post.content}}"  placeholder="Enter your content here..." required></input>
+                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                </div>
+                <br />
+                <button class="btn btn-primary text-uppercase" id="submitButton" type="submit">Save Changes</button>
+            </form>
+            
+           
+        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                {% endblock  %}

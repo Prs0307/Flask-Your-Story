@@ -1,0 +1,20 @@
+{
+    "params": 
+    {
+        "version":"1.0.1",
+        "local_server":"True",
+        "local_uri":"mysql://root:@localhost/yourstory",
+        "production_uri":"mysql+mysqlconnector://root:@localhost/yourstory",
+        "github_url":"https://github.com/prs0307",
+        "story_title":"yourstory",
+        "story_description":"Your Coding Journey",
+        "user_gmail":"princesahu169@gmail.com",
+        "g_password":"nnik irvl fiak mtah",
+        "no_of_posts":2,
+        "admin_email":"prince",
+        "admin_password":"pass",
+        "upload_location":"E:\\Flask_Basics\\CWH\\BLOG_BACKEND\\FlaskApp\\static\\images",
+        "admin_job":"Backend Developer",
+        "about_admin":"I am prince learning Flask this project is made up using flask Hopefully you like this project \nDate: May 2024 | Made with ❤️"
+    }
+}

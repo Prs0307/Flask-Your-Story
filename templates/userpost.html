@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+{% block body %}
+   <div style="background-color: rgb(61, 61, 61);height:100vh">
+    
+    <div class="container position-relative px-4 px-lg-5">
+        
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading" style="margin-top: 140px; margin-left:90px">
+                    <h5 style="color: aliceblue; margin-left:0"> Welcome {{params['admin_email']}} to your Previous stories here....  </h5>
+                    <div>
+                        <table>
+                           <thead>
+                            <tr>
+                           
+                                <td>
+                                   link
+                                </td>
+                            </tr>
+                            
+
+                           </thead>
+                           <tbody >
+                            {% for post in posts  %}
+                                <tr>
+                                 
+                                    <td>
+                                      
+                                        <a href="/posts/{{post.slog}}"> {{post.slog}}</a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                           </tbody>
+                        </table>
+                    </div>
+                    {% for post in posts %}
+                   
+                
+                    {% endfor %}
+                    <!-- <ul style="color: aliceblue;">
+                    
+                        <li style="color: aliceblue;"><a  class="nav-link px-lg-3 py-1 py-lg-2" href="posts/my-first-post">my-first-post</a></li>
+                        <li style="color: aliceblue;"><a  class="nav-link px-lg-3 py-1 py-lg-2" href="posts/my-second-post">my-second-post</a></li>
+                        <li style="color: aliceblue;"><a  class="nav-link px-lg-3 py-1 py-lg-2" href="posts/my-third-post">my-third-post</a></li>
+                        <li style="color: aliceblue;"><a  class="nav-link px-lg-3 py-1 py-lg-2" href="posts/my-fourth-post">my-fourth-post</a></li>
+                        <li style="color: aliceblue;"><a  class="nav-link px-lg-3 py-1 py-lg-2" href="posts/my-fifth-post">my-fifth-post</a></li>
+                        <li style="color: aliceblue;"><a  class="nav-link px-lg-3 py-1 py-lg-2" href="posts/my-sixth-post">my-sixt-post</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</a></li>
+
+                    </ul> -->
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- <div style=" color:azure">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+       
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div> -->
+   </div>
+{% endblock %}

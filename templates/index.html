@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('static/assets/img/HOME_BGI.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{params['story_title']}}</h1>
+                            <span class="subheading">{{params['story_description']}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview from database-->
+                 {% for post in posts %}
+                    
+                
+                <li style="list-style-type: none;"> <a href="/posts/{{post.slog}}">
+                    <div class="post-preview">
+                            <h2 class="post-title">{{post.title}}</h2>
+                            <h3 class="post-subtitle">{{post.subheading}}</h3>
+                        
+                        <p class="post-meta">
+                           Story Posted on
+                            <a href="#!"></a>
+                            {{post.date}}
+                        </p>
+                        {{post.content[0:19]}} <span > <a href="/posts/{{post.slog}}" style="color: brown;">.... Read Full story </a> </span>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <!-- <div class="post-preview">
+                        <a href="post.html">
+                            <h2 class="post-title">Failure is not an option</h2>
+                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on July 8, 2023
+                        </p>
+                    </div> -->
+                </a>
+                </li>
+                    <!-- Divider-->
+                {% endfor %}
+            </div>
+                    <!-- Pager-->
+                <div style="display: flex;justify-content: space-around ;flex-direction:row ;">
+                    <div class="d-flex justify-content-start mb-4">
+                        <a class="btn btn-primary text-uppercase" href="{{prev}}">🡠Previous
+                    </a></div>
+
+
+                    <div class="d-flex justify-content-end mb-4">
+                        <a class="btn btn-primary text-uppercase" href="{{next}}">
+ Older Posts 🡢 </a></div>
+                </div>
+                </div>
+            </div>
+        </div>
+{% endblock  %}
+  

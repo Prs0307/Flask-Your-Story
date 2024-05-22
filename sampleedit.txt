@@ -1,0 +1,28 @@
+@app.route("/edit/<string:sno>", methods=['GET', 'POST'])
+def modify(sno):
+    if 'user' in session and session['user'] == params['admin_email']:
+        if request.method == 'POST':
+            prev_title = request.form.get('title')
+            subheading = request.form.get('subheading')
+            slog = request.form.get('slug')
+            content = request.form.get('content')
+            img_url = request.form.get('img_url')
+
+            if sno == '0':
+                post = Post(title=prev_title, subheading=subheading, slug=slog, content=content, img_url=img_url)
+                db.session.add(post)
+                db.session.commit()
+            else:
+                post = Post.query.filter_by(sno=sno).first()
+                if post:
+                    post.title = prev_title
+                    post.subheading = subheading
+                    post.slug = slog
+                    post.content = content
+                    post.img_url = img_url
+                    db.session.commit()
+            return render_template('edit.html', post=post, sno=sno, params=params)
+        else:
+            post = Post.query.filter_by(sno=sno).first() if sno != '0' else None
+            return render_template('edit.html', post=post, sno=sno, params=params)
+    return redirect(url_for('login'))

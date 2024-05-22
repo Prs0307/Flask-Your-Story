@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block body %}
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('static/assets/img/HOME_BGI.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{params['admin_email'].capitalize()}} Dashboard</h1>
+                            <span class="subheading"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+
+         
+
+            <!-- <h1 class="md-8">Welcome to the Dashboard {{params['admin_email']}}</h1> -->
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">S.No.</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Modify</th>
+                    <th scope="col">Delete</th>
+                    
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                
+                {% for post in posts  %}
+                    
+                
+                  <tr>
+                    <!-- <th scope="row">1</th> -->
+                   {% if posts|length>0 %}
+                     <td>{{post.sno}}</td>
+                    <td>{{post.title}}</td>
+                    <td>{{post.date}}</td>
+
+                    <td><a class="btn btn-secondary" href="/edit/{{post.sno}}">Edit</a></td>
+                    <td><a class="btn btn-danger" href="/delete/{{post.sno}}">Delete</a></td>
+                   
+
+
+                   {% endif %}
+                   {% if posts|length ==0 %}
+           
+                      
+              <th scope="col"><a class="btn btn-secondary" href="/edit/0">Add Your first Story...</a></th>
+                
+              {% else %}
+                <!-- Last me add nahi ho ra hai -->
+              <td><a href="/edit/{{post.sno +1}}" class="btn btn-secondary">Add New Story</a></td>
+              {% endif %}
+                  </tr>
+                 {% endfor %}
+
+                </tbody>
+              </table>
+              
+            </div>
+        </div>
+{% endblock  %}
+  
